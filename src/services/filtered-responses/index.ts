@@ -32,7 +32,9 @@ export async function getFilteredResponses(
       responses: applyLimitAndOffset(filteredResponses, limit, offset),
     };
   } catch (error) {
-    res.status(HttpStatusCode.BadRequest).send({ success: false });
+    res
+      .status(HttpStatusCode.BadRequest)
+      .send({ error: "No form submissions found. Make sure the form ID is correct." });
   }
 }
 

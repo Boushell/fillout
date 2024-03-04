@@ -20,7 +20,9 @@ export async function validateFilteredResponsesQuery(req: Request, res: Response
     };
     next();
   } catch (error) {
-    return res.status(HttpStatusCode.BadRequest).send({ success: false });
+    return res
+      .status(HttpStatusCode.BadRequest)
+      .send({ error: "Inputted filters are improperly formatted. Make sure your JSON is correct." });
   }
 }
 
