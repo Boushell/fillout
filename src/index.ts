@@ -10,7 +10,7 @@ const app: Express = express();
 const port = process.env.PORT || 3000;
 
 app.use(validateFilteredResponsesQuery).get("/:formId/filteredResponses", async (req: Request, res: Response) => {
-  const filteredResponses = await getFilteredResponses(req.params.formId, req.context);
+  const filteredResponses = await getFilteredResponses(req.params.formId, req.context, res);
   res.send(filteredResponses);
 });
 
